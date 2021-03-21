@@ -14,7 +14,7 @@
         <Button Name="changeButton" Content="Изменить книгу" IsEnabled="False" HorizontalAlignment="Left" Height="36" Margin="239,51,0,0" Click="changeShow" VerticalAlignment="Top" Width="84"/>
         <Button Name="deleteButton" Content="Удалить книгу" IsEnabled="False" HorizontalAlignment="Left" Height="36" Margin="239,92,0,0" Click="deleteClick" VerticalAlignment="Top" Width="84"/>
         <Button Name="saveButton" Content="Сохранить" IsEnabled="False" HorizontalAlignment="Left" Height="36" Margin="239,331,0,0" Click="saveClick" VerticalAlignment="Top" Width="84"/>
-
+        
         <TextBox Name="nameBook" HorizontalAlignment="Left" Height="22" Margin="334,154,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145"/>
         <TextBox Name="nameAuthor" HorizontalAlignment="Left" Height="22" Margin="334,190,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145"/>
         <TextBox Name="nameGenre" HorizontalAlignment="Left" Height="22" Margin="334,221,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145"/>
@@ -23,12 +23,23 @@
         <ComboBox Name="nameAuthorList" HorizontalAlignment="Left" Margin="497,190,0,0" VerticalAlignment="Top" Width="124" Height="22"/>
         <ComboBox Name="nameGenreList" HorizontalAlignment="Left" Margin="497,221,0,0" VerticalAlignment="Top" Width="124" Height="22"/>
 
+        <Button Name="searchButton" Content="Поиск" IsEnabled="True" HorizontalAlignment="Left" Height="36" Margin="689,163,0,0" Click="searchClick" VerticalAlignment="Top" Width="84"/>
+        <TextBox Name="nameBookSearch" HorizontalAlignment="Left" Height="22" Margin="626,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145"/>
+        <ComboBox Name="yearReleaseSearch" HorizontalAlignment="Left" Height="22" Margin="626,117,0,0" VerticalAlignment="Top" Width="145"/>
+        <ComboBox Name="nameAuthorListSearch" HorizontalAlignment="Left" Margin="626,55,0,0" VerticalAlignment="Top" Width="145" Height="22"/>
+        <ComboBox Name="nameGenreListSearch" HorizontalAlignment="Left" Margin="626,86,0,0" VerticalAlignment="Top" Width="145" Height="22"/>
+        
         <Label Content="Название:" HorizontalAlignment="Left" Margin="239,150,0,0" VerticalAlignment="Top"/>
         <Label Content="Автор:" HorizontalAlignment="Left" Margin="239,186,0,0" VerticalAlignment="Top"/>
         <Label Content="Жанр:" HorizontalAlignment="Left" Margin="239,221,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.517,0.026"/>
         <Label Content="Год выпуска:" HorizontalAlignment="Left" Margin="239,248,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.517,0.026"/>
         <Label Content="Содержание:" HorizontalAlignment="Left" Margin="239,279,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.517,0.026"/>
         <TextBlock Name="BlockInfo" HorizontalAlignment="Left" Height="146" Margin="506,248,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="267"/>
-        <Label Name="errorLabel" Foreground="Red" HorizontalAlignment="Left" Margin="342,110,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.517,0.026" Width="137"/>
-    </Grid>
+        <Label Name="errorLabel" Foreground="Red" HorizontalAlignment="Left" Margin="342,117,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.517,0.026" Width="137"/>
+        
+        <Label Content="Название:" HorizontalAlignment="Left" Margin="530,15,0,0" VerticalAlignment="Top"/>
+        <Label Content="Автор:" HorizontalAlignment="Left" Margin="530,51,0,0" VerticalAlignment="Top"/>
+        <Label Content="Жанр:" HorizontalAlignment="Left" Margin="530,82,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.517,0.026"/>
+        <Label Content="Год выпуска:" HorizontalAlignment="Left" Margin="516,117,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.517,0.026"/>
+     </Grid>
 </Window>
