@@ -57,7 +57,7 @@
         <Reference Include="Microsoft.CSharp" />
         <Reference Include="mscorlib" />
         <Reference Include="MySql.Data, Version=8.0.23.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d">
-          <HintPath>packages\MySql.Data.8.0.23\lib\net48\MySql.Data.dll</HintPath>
+          <HintPath>..\packages\MySql.Data.8.0.23\lib\net48\MySql.Data.dll</HintPath>
           <Private>True</Private>
         </Reference>
         <Reference Include="Renci.SshNet, Version=2020.0.0.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106">
@@ -95,14 +95,14 @@
             <RequiredTargetFramework>4.0</RequiredTargetFramework>
         </Reference>
         <Reference Include="Ubiety.Dns.Core, Version=2.2.1.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d">
-          <HintPath>packages\MySql.Data.8.0.23\lib\net48\Ubiety.Dns.Core.dll</HintPath>
+          <HintPath>..\packages\MySql.Data.8.0.23\lib\net48\Ubiety.Dns.Core.dll</HintPath>
           <Private>True</Private>
         </Reference>
         <Reference Include="WindowsBase" />
         <Reference Include="PresentationCore" />
         <Reference Include="PresentationFramework" />
         <Reference Include="Zstandard.Net, Version=1.1.7.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d">
-          <HintPath>packages\MySql.Data.8.0.23\lib\net48\Zstandard.Net.dll</HintPath>
+          <HintPath>..\packages\MySql.Data.8.0.23\lib\net48\Zstandard.Net.dll</HintPath>
           <Private>True</Private>
         </Reference>
     </ItemGroup>
