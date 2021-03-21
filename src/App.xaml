@@ -1,7 +1,7 @@
-﻿<Application x:Class="basic_work_with_elements.App"
+﻿<Application x:Class="mini_library.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:basic_work_with_elements"
+             xmlns:local="clr-namespace:mini_library"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
          

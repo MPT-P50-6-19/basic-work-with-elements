@@ -5,7 +5,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
-namespace basic_work_with_elements
+namespace mini_library
 {
     public class Book
     {

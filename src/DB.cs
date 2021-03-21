@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using MySql.Data.MySqlClient;
 
-namespace basic_work_with_elements
+namespace mini_library
 {
      public class DB
     {

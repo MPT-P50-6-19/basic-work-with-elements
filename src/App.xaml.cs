@@ -1,4 +1,4 @@
-﻿namespace basic_work_with_elements
+﻿namespace mini_library
 {
     /// <summary>
     /// Interaction logic for App.xaml

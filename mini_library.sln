@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "basic-work-with-elements", "src/basic-work-with-elements.csproj", "{5A9C809B-342B-4ADA-B25C-9F28F6629097}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mini-library", "src/mini-library.csproj", "{5A9C809B-342B-4ADA-B25C-9F28F6629097}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
