@@ -5,24 +5,30 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:basic_work_with_elements"
         mc:Ignorable="d"
-        Title="MainWindow" Height="700" Width="525">
-        <Grid>
-                <Button Content="Добавить" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="338,10,0,0" Click="createShow"  Name="add"/>
-                <Button Content="Удалить" IsEnabled="False" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="338,35,0,0" Click="deleteClick"  Name="del"/>
-                <Button Content="Изменить" IsEnabled="False" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="338,60,0,0" Click="changeShow" Name="red"/>
-                <Button Content="Сохранить" IsEnabled="False" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="338,224,0,0" Click="saveClick" Visibility="Hidden" Name="save"/>
-                <TextBox IsEnabled="False" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap"  VerticalAlignment="Top" Width="323" Margin="338,85,0,0" Name="mark"/>
-                <TextBox IsEnabled="False" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap"  VerticalAlignment="Top" Width="323" Margin="338,111,0,0" Name="modl"/>
-                <TextBox IsEnabled="False" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="323" Margin="338,139,0,0" RenderTransformOrigin="0.456,-0.884" Name="price"/>
-                <Label Name="errorLabel" Foreground="Red" Width="200" Height="100" Margin="30,100,0,0"></Label>
-                <ListView HorizontalAlignment="Left" Height="234" VerticalAlignment="Top" Width="323" Margin="10,10,0,0" Name="ListElement" SelectionChanged="choiceElement">
-                        <ListView.View>
-                                <GridView>
-                                        <GridViewColumn/>
-                                </GridView>
-                        </ListView.View>
-                </ListView>
-                <Label HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,249,0,0" Height="96" Width="323" Name="vivod"/>
+        Title="MainWindow" Height="450" Width="800">
+     <Grid>
+        <ListView Name="ListElement" HorizontalAlignment="Left" Height="364" Margin="10,10,0,0" SelectionChanged="choiceElement" VerticalAlignment="Top" Width="211">
 
-        </Grid>
+        </ListView>
+        <Button Name="createButton" Content="Создать книгу" IsEnabled="True" HorizontalAlignment="Left" Height="36" Margin="239,10,0,0" Click="createShow" VerticalAlignment="Top" Width="84"/>
+        <Button Name="changeButton" Content="Изменить книгу" IsEnabled="False" HorizontalAlignment="Left" Height="36" Margin="239,51,0,0" Click="changeShow" VerticalAlignment="Top" Width="84"/>
+        <Button Name="deleteButton" Content="Удалить книгу" IsEnabled="False" HorizontalAlignment="Left" Height="36" Margin="239,92,0,0" Click="deleteClick" VerticalAlignment="Top" Width="84"/>
+        <Button Name="saveButton" Content="Сохранить" IsEnabled="False" HorizontalAlignment="Left" Height="36" Margin="239,331,0,0" Click="saveClick" VerticalAlignment="Top" Width="84"/>
+
+        <TextBox Name="nameBook" HorizontalAlignment="Left" Height="22" Margin="334,154,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145"/>
+        <TextBox Name="nameAuthor" HorizontalAlignment="Left" Height="22" Margin="334,190,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145"/>
+        <TextBox Name="nameGenre" HorizontalAlignment="Left" Height="22" Margin="334,221,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145"/>
+        <TextBox Name="yearRelease" HorizontalAlignment="Left" Height="22" Margin="334,252,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145"/>
+        <TextBox Name="content" HorizontalAlignment="Left" Height="44" Margin="334,283,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145"/>
+        <ComboBox Name="nameAuthorList" HorizontalAlignment="Left" Margin="497,190,0,0" VerticalAlignment="Top" Width="124" Height="22"/>
+        <ComboBox Name="nameGenreList" HorizontalAlignment="Left" Margin="497,221,0,0" VerticalAlignment="Top" Width="124" Height="22"/>
+
+        <Label Content="Название:" HorizontalAlignment="Left" Margin="239,150,0,0" VerticalAlignment="Top"/>
+        <Label Content="Автор:" HorizontalAlignment="Left" Margin="239,186,0,0" VerticalAlignment="Top"/>
+        <Label Content="Жанр:" HorizontalAlignment="Left" Margin="239,221,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.517,0.026"/>
+        <Label Content="Год выпуска:" HorizontalAlignment="Left" Margin="239,248,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.517,0.026"/>
+        <Label Content="Содержание:" HorizontalAlignment="Left" Margin="239,279,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.517,0.026"/>
+        <TextBlock Name="BlockInfo" HorizontalAlignment="Left" Height="146" Margin="506,248,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="267"/>
+        <Label Name="errorLabel" Foreground="Red" HorizontalAlignment="Left" Margin="342,110,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.517,0.026" Width="137"/>
+    </Grid>
 </Window>
