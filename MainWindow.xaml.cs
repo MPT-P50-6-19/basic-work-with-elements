@@ -31,7 +31,7 @@ namespace basic_work_with_elements
         public MainWindow()
         {
             InitializeComponent();
-            updateList("SELECT * FROM `book`");
+            updateList("SELECT * FROM `book`", true);
         }    
 
         private void deleteClick(object sender, RoutedEventArgs routedEventArgs)
@@ -83,8 +83,7 @@ namespace basic_work_with_elements
                 showError("Год указан не числом");
                 return;
             }
-            bool isCreate = booksListViews.Count(vari => vari.id == bookID)==0;
-            if (isCreate)
+            if (booksListViews.Count(vari => vari.id == bookID)==0)
             {
                 db.execute($"INSERT INTO `book`(`name`, `authorID`, `content`, `genreID`, `year_release`) VALUES ('{nameBook.Text}',{getAuthorID(AuthorName)},'{content.Text}',{getGenreID(GenreName)},{yearRelease.Text})");
             }
@@ -92,19 +91,21 @@ namespace basic_work_with_elements
             {
                 db.execute($"UPDATE `book` SET `name`='{nameBook.Text}',`authorID`={getAuthorID(AuthorName)},`content`='{content.Text}',`genreID`={getGenreID(GenreName)},`year_release`={yearRelease.Text} WHERE `id`={bookID}");
             }
-            updateList("SELECT * FROM `book`");
+            updateList("SELECT * FROM `book`", true);
             reset(all: true);
         }
         
         private void searchClick(object sender, RoutedEventArgs routedEventArgs)
         {
+            reset(all:true);
             string nameBook = nameBookSearch.Text != "" ?nameBookSearch.Text:"";
             var yearRelease = yearReleaseSearch.SelectedItem ?? "";
             var nameAuthorList = nameAuthorListSearch.SelectedItem ?? "";
             var nameGenreList = nameGenreListSearch.SelectedItem ?? "";
+            var alphabetically = SortAlphabetically.IsChecked != null && (bool)SortAlphabetically.IsChecked;
             if (nameBook == "" && yearRelease == "" && nameAuthorList == "" && nameGenreList == "")
             {
-                updateList("SELECT * FROM `book`");
+                updateList("SELECT * FROM `book` "+ (alphabetically?" ORDER BY `name`":""), true);
                 return;
             }
             string sql = "SELECT * FROM `book` WHERE ";
@@ -116,7 +117,9 @@ namespace basic_work_with_elements
             {
                 sql = sql.Substring(0,sql.Length-5);
             }
-            updateList(sql, false);
+
+            sql += alphabetically?" ORDER BY `name`":"";
+            updateList(sql);
         }
         
         private void choiceElement(object sender, SelectionChangedEventArgs selectionChangedEventArgs)
@@ -181,6 +184,8 @@ namespace basic_work_with_elements
             content.IsEnabled = true;
             nameAuthorList.IsEnabled = true;
             nameGenreList.IsEnabled = true;
+            db.execute("SELECT * FROM `author` ORDER BY `name`").ForEach(vari => nameAuthorList.Items.Add(vari["name"]));
+            db.execute("SELECT * FROM `genre` ORDER BY `name`").ForEach(vari => nameGenreList.Items.Add(vari["name"]));
         }
         
         private void hidenInput()
@@ -192,6 +197,8 @@ namespace basic_work_with_elements
             content.IsEnabled = false;
             nameAuthorList.IsEnabled = false;
             nameGenreList.IsEnabled = false;
+            nameAuthorList.Items.Clear();
+            nameGenreList.Items.Clear();
         }
 
         private int getAuthorID(string author)
@@ -216,12 +223,10 @@ namespace basic_work_with_elements
             return (int)response[0]["id"];
         }
 
-        private void updateList(string searchElement, bool resetSearch = true)
+        private void updateList(string searchElement, bool resetSearch = false)
         {
             ListElement.Items.Clear();
             booksListViews.Clear();
-            nameAuthorList.Items.Clear();
-            nameGenreList.Items.Clear();
 
             int number = 1;
             foreach (var vari in db.execute(searchElement))
@@ -244,24 +249,26 @@ namespace basic_work_with_elements
                 nameAuthorListSearch.Items.Clear();
                 nameGenreListSearch.Items.Clear();
                 yearReleaseSearch.Items.Clear();
-            
+                
                 nameAuthorListSearch.Items.Add("");
                 nameGenreListSearch.Items.Add("");
                 yearReleaseSearch.Items.Add("");
-            
-                db.execute("SELECT * FROM `author`").ForEach(vari =>
-                {
-                    nameAuthorList.Items.Add(vari["name"]);
-                    nameAuthorListSearch.Items.Add(vari["name"]);
-                });
-                db.execute("SELECT * FROM `genre`").ForEach(vari =>
-                {
-                    nameGenreList.Items.Add(vari["name"]);
-                    nameGenreListSearch.Items.Add(vari["name"]);
-                });
-                db.execute("SELECT DISTINCT `year_release` FROM `book`").ForEach(vari=>yearReleaseSearch.Items.Add(vari["year_release"]));
+
+                db.execute("SELECT * FROM `author` ORDER BY `name`").ForEach(vari => nameAuthorListSearch.Items.Add(vari["name"]));
+                db.execute("SELECT * FROM `genre` ORDER BY `name`").ForEach(vari => nameGenreListSearch.Items.Add(vari["name"]));
+                db.execute("SELECT DISTINCT `year_release` FROM `book` ORDER BY `year_release` DESC").ForEach(vari=>yearReleaseSearch.Items.Add(vari["year_release"]));
 
             }
+        }
+
+        private void NameAuthorList_OnSelectionChanged(object sender, RoutedEventArgs routedEventArgs)
+        {
+            nameAuthor.Text = (string)nameAuthorList.SelectedItem;
+        }
+
+        private void NameGenreList_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            nameGenre.Text = (string)nameGenreList.SelectedItem;
         }
     }
 }
